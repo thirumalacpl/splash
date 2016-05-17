@@ -1,0 +1,112 @@
+li {
+	width: auto;
+	/*background-color: rgba(232, 232, 232, 0.46) !important;
+	    /*border-bottom: 2px solid #fff;*/
+	    padding-top: 1%;
+}
+
+.img_1{
+	width: 30px !important;
+    margin: 1% !important;
+        padding-top: 1%;
+
+}
+.p_text1 {
+	    font-size: 15px !important;
+    width: auto;
+    color: inherit;
+margin: 0 !important;
+    margin-left: 0px;
+    float: left !important;
+    padding-top: 4%;
+}
+.download1 {
+	 float: right !important;
+    width: 25px !important;
+    padding-top: 2%;
+
+
+}
+
+.main_tab {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.a_tab {
+	margin: 0 !important;
+    padding: 0;
+    text-align: center !important;
+    padding-left: 16% !important;
+}
+
+.tab_code {
+	    font-size: 15px !important;
+    width: auto;
+   
+
+    color: inherit;
+    margin: 7px;
+    padding: 0;
+    margin-left: 50px;
+}
+.tab_img {
+	width: 30px;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+.a_tab {
+	margin: 0 !important;
+    padding: 0;
+    text-align: center !important;
+    padding-left: 10% !important;
+}
+.p_text1 {
+	    font-size: 15px !important;
+    width: auto;
+    color: inherit;
+	margin: 0 !important;
+    margin-left: 0px;
+    float: left !important;
+    padding-top: 3%;
+}
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px){
+.a_tab {
+	margin: 0 !important;
+    padding: 0;
+    text-align: center !important;
+    padding-left: 10% !important;
+}
+.p_text1 {
+	    font-size: 16px !important;
+    width: auto;
+    color: inherit;
+	margin: 0 !important;
+    margin-left: 0px;
+    float: left !important;
+    padding-top: 2.8%;
+}
+
+
+}
+/*tab2 code*/
+.grid_select {
+	width: 70% !important;
+}
+
+.grid_select1 {
+
+	margin-top: 2% !important;
+	margin-top: 2% !important;
+    background: #58BF71 !important;
+    color: #fff;
+    width: 23% !important;
+    margin: 0 auto;
+    float: right;
+}

@@ -1,0 +1,25 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.advs.manhummel.lpa" version="1.1.0">
+  <name>WATCHGUARD_camera</name>
+  <description>WATCHGUARD_camera</description>
+  <author href="http://advicesync.com" email="support@advicesync.com">eImpressive</author>
+  <content src="index.html"/>
+<uses-permission android:name="android.permission.CAMERA"/> 
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+ <uses-permission android:name="android.permission.INTERNET">
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+<uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+<uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>  
+<uses-permission android:name="android.permission.WAKE_LOCK"/>  
+<uses-permission android:name="android.permission.GET_ACCOUNTS"/>  
+<uses-permission android:name="android.permission.USE_CREDENTIALS"/>  
+
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+ </widget>

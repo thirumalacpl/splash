@@ -1,0 +1,27 @@
+{
+    "cordova-plugin-mfilechooser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-mfilechooser"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.synconset.imagepicker": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wymsee/cordova-imagePicker.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "mp-cordova-plugin-camera": {
+        "source": {
+            "type": "registry",
+            "id": "mp-cordova-plugin-camera"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
