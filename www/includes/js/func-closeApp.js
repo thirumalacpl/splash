@@ -1,13 +1,10 @@
-
 //DeviceReady function
 document.addEventListener('deviceready', function(){
-	alert("backbutton");
 	document.addEventListener("backbutton", ShowExitDialog, false);
 }, false);
 
 //Dialog popup
 function ShowExitDialog(){
-	alert("backbutton backbutton")
 	$("#myDialogs").empty();
 	$("#myDialogs").html("<div class=\"text-danger\">Alert !</div>");
 	

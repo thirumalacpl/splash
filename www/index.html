@@ -25,13 +25,14 @@
 	<link rel="stylesheet" href="css/animate.css" />
 	<link rel="stylesheet" href="css/nativedroid2.css" />
 	<!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
-  <link rel="stylesheet" type="text/css" href="css/file.css">
-  <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-  <link rel="stylesheet" type="text/css" href="css/tab.css">
+    <link rel="stylesheet" type="text/css" href="css/file.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="css/tab.css">
 
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
 
 <script src="js/imageflip.mini.js"></script>
 
@@ -40,39 +41,7 @@
   <link rel="stylesheet" href="icons/css/material-design-iconic-font.css" />
   <link rel="stylesheet" href="icons/css/material-design-iconic-font.min.css" />
    <!--icons-->
-<script type="text/javascript">
-	 document.addEventListener("deviceready", function(){
-//http://bit.ly/1WhZ44c
-     // alert("deviceready");
- },true);
-</script>
 
-<script type="text/javascript">
-document.addEventListener("backbutton", onBackKeyDown, false);
-function onBackKeyDown(e) {
-  //alert("back button");
- e.preventDefault();
-}
-</script>
-   <script type="text/javascript">
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-    
-    // Cordova is loaded and it is now safe to make calls Cordova methods
-    //  
-    function onDeviceReady() {
-        document.addEventListener("resume", onResume, false);
-    }
-
-    // Handle the resume event
-    //
-    function onResume() {
-    //
-    }
-
-
-</script>
 
 
 <style type="text/css">
@@ -181,29 +150,47 @@ a.control_next {
 </style>
 
 <script type="text/javascript">
-	//handle Back button
-function onDeviceReady() {
-    // Register the event listener
-    document.addEventListener("backbutton", onBackKeyDown, false);
-    console.log('Device ready - register onBackKeyDown()');                
-}
+  document.addEventListener('deviceready', function(){
+  document.addEventListener("backbutton", ShowExitDialog, false);
+}, false);
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onBackKeyDown() {
-    var active_page = $( ":mobile-pagecontainer" ).pagecontainer( "getActivePage" );
-    var id =active_page.page().attr('id');
-    if (id==='pageone') {
-        if (confirm('Do you want to exit the app?')==true){
-            navigator.app.exitApp();
-        }
-    }
-    else{
-    navigator.app.backHistory();
-    }
+//Dialog popup
+function ShowExitDialog(){
+  $("#myDialogs").empty();
+  $("#myDialogs").html("<div class=\"text-danger\">Alert !</div>");
+  
+  $("#myDialogsText").removeClass("alert-success alert-info alert-warning alert-danger");
+  $("#myDialogsText").addClass("alert-warning");
+  $("#myDialogsText").html("Anda yakin ingin keluar dari aplikasi ini ?");
+  
+  $("#button-DialogYes").removeClass("btn-info btn-danger btn-warning btn-primary hide");
+  $("#button-DialogNo").removeClass("hide");
+  $("#button-DialogClose").removeClass("hide");
+  
+  $("#button-DialogYes").unbind();
+  $("#button-DialogNo").unbind();
+  $("#button-DialogClose").unbind();
+  
+  $("#button-DialogYes").addClass("btn-warning");
+  $("#button-DialogYes").bind("click", function(){
+    navigator.app.exitApp();
+  });
+  
+  $("#button-DialogNo").bind("click", function(){
+    $("#AppDialogs").modal("hide");
+  });
+  
+  $("#button-DialogClose").addClass("hide");
+  
+  $("#AppDialogs").modal();
 }
-//**
 </script>
+
+            <link href="includes/css/dialogs.css" rel="stylesheet">
+              <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Custom styles for index.html -->
+      <link href="includes/css/index.css" rel="stylesheet">
 	</head>
 	<body style="padding:0; margin:0;" onload="onLoad()" class="pageonesizewhite">
    <!-- <body onload="onLoad()"> -->
@@ -265,6 +252,23 @@ function onBackKeyDown() {
   </div>
 <!-- <a href="#regid">link to regid</a> -->
 
+        <div class="modal fade" id="AppDialogs" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myDialogs" aria-hidden="true">
+          <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myDialogs"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="alert" id="myDialogsText"></p>
+                    </div>
+                    <div class="modal-footer" id="myDialogsFoot">
+                      <button type="button" class="btn btn-default" id="button-DialogYes"><span class="glyphicon glyphicon-ok"></span> Ya</button>
+                        <button type="button" class="btn btn-default" id="button-DialogNo"><span class="glyphicon glyphicon-remove"></span> Tidak</button>
+                        <button type="button" class="btn btn-default" id="button-DialogClose"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
   </div>
 </div> 
@@ -5393,24 +5397,19 @@ transform: rotate(90deg);
 </script>
 <script src="js/jquery.fileuploadmulti.min.js"></script>
  <link href="css/uploadfilemulti.css" rel="stylesheet">
-<script src="js/jquery.fileuploadmulti.min.js"></script>
- <link href="css/uploadfilemulti.css" rel="stylesheet">
-
 <script type='text/javascript'>
 CharacterCount = function(TextArea,FieldToCount){
-  var messageText = document.getElementById(TextArea);
-  var myLabel = document.getElementById(FieldToCount); 
-  if(!messageText || !myLabel){return false}; // catches errors
-  var MaxChars =  messageText.maxLengh;
-  if(!MaxChars){MaxChars =  messageText.getAttribute('maxlength') ; };  if(!MaxChars){return false};
-  var remainingChars =   MaxChars - messageText.value.length
-  myLabel.innerHTML = remainingChars+" Characters Remaining of Maximum "+MaxChars
+	var messageText = document.getElementById(TextArea);
+	var myLabel = document.getElementById(FieldToCount); 
+	if(!messageText || !myLabel){return false}; // catches errors
+	var MaxChars =  messageText.maxLengh;
+	if(!MaxChars){MaxChars =  messageText.getAttribute('maxlength') ; }; 	if(!MaxChars){return false};
+	var remainingChars =   MaxChars - messageText.value.length
+	myLabel.innerHTML = remainingChars+" Characters Remaining of Maximum "+MaxChars
 }
  
 setInterval(function(){CharacterCount('messageText','CharCountLabel1')},55);
 </script>
-
-     <!--  <nd2-include data-src="examples/fragments/panel.left.html"></nd2-include> -->
 
       <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
         <nd2-include data-src="examples/fragments/bottom.sheet.html"></nd2-include>
@@ -5523,10 +5522,13 @@ setInterval(function(){CharacterCount('messageText','CharCountLabel1')},55);
     </div>
  <div class="ui-block-b" style="width:80%;">
         <div data-role="fieldcontain">
- <!--  <textarea cols="40" rows="8" name="textarea" name="messageText" id="messageText" class="bacg" style="background-color:#ffffff!important;padding:15px !important;"></textarea> -->
+<!--   <textarea cols="40" rows="8" name="textarea" name="messageText" id="messageText" class="bacg" style="background-color:#ffffff!important;padding:15px !important;"></textarea> -->
+
 <textarea  cols="50" rows="10" maxlength='5000' name="textarea" name="messageText" id="messageText" class="bacg" style="background-color:#ffffff!important;padding:15px !important;"></textarea>
  
 <div id='CharCountLabel1' style="text-align:right;color:#CD0601;font-weight:500"></div>
+ 
+
 </div>
 </div>
     </div>
@@ -5576,6 +5578,7 @@ setInterval(function(){CharacterCount('messageText','CharCountLabel1')},55);
 </div>
 
 </div>
+
 
 <div class="ui-loader ui-corner-all ui-body-a ui-loader-verbose uii"><span class="ui-icon-loading"></span><h1>Wait Image Is Uploading...</h1></div>
 
