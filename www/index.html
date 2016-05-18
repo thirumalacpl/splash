@@ -35,6 +35,7 @@
 
 
 <script src="js/imageflip.mini.js"></script>
+   <link href="includes/css/dialogs.css" rel="stylesheet">
 
   <!--icons-->
  
@@ -181,30 +182,6 @@ a.control_next {
 
 </style>
 
-<script type="text/javascript">
-	//handle Back button
-function onDeviceReady() {
-    // Register the event listener
-    document.addEventListener("backbutton", onBackKeyDown, false);
-    console.log('Device ready - register onBackKeyDown()');                
-}
-
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onBackKeyDown() {
-    var active_page = $( ":mobile-pagecontainer" ).pagecontainer( "getActivePage" );
-    var id =active_page.page().attr('id');
-    if (id==='pageone') {
-        if (confirm('Do you want to exit the app?')==true){
-            navigator.app.exitApp();
-        }
-    }
-    else{
-    navigator.app.backHistory();
-    }
-}
-//**
-</script>
 	</head>
 	<body style="padding:0; margin:0;" onload="onLoad()" class="pageonesizewhite">
    <!-- <body onload="onLoad()"> -->
@@ -213,6 +190,10 @@ function onBackKeyDown() {
    <div data-role="page" id="pageone" class="bg">
   
 <script type="text/javascript" src="js/index.js"></script>
+
+
+ <script type="text/javascript" charset="utf-8" src="includes/js/func-closeApp.js"></script>
+
   <div data-role="main" class="ui-content">
    <div style="text-align:center;margin-top: 100px;"><img src="images/logo.png" alt="logo" style="width:60%"></div>
 
@@ -266,6 +247,24 @@ function onBackKeyDown() {
   </div>
 <!-- <a href="#regid">link to regid</a> -->
 
+   <!-- Dialogs -->
+        <div class="modal fade" id="AppDialogs" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myDialogs" aria-hidden="true">
+          <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myDialogs"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="alert" id="myDialogsText"></p>
+                    </div>
+                    <div class="modal-footer" id="myDialogsFoot">
+                      <button type="button" class="btn btn-default" id="button-DialogYes"><span class="glyphicon glyphicon-ok"></span> Ya</button>
+                        <button type="button" class="btn btn-default" id="button-DialogNo"><span class="glyphicon glyphicon-remove"></span> Tidak</button>
+                        <button type="button" class="btn btn-default" id="button-DialogClose"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
   </div>
 </div> 
